@@ -8,9 +8,10 @@
 - [ ] Add the setup : WSL, ect. so it can be used for this project
 </details>
 
-# Jupyter Notebook Setup
+# Environnement Setup
 
 This guide will walk you through setting up a Jupyter Notebook on a machine using Mambaforge and WSL.
+And also install Visual Studio Code.
 
 ## Prerequisites for Windows Users
 
@@ -24,7 +25,7 @@ This guide will walk you through setting up a Jupyter Notebook on a machine usin
     ```bash
     wsl --install
     ```
-  - Restart your computer, set up your Ubuntu user (username and password).
+  - Restart your computer, set up your Ubuntu user (username in small letters and password).
 
 - **Update Linux Distribution:**
   ```bash
@@ -50,7 +51,7 @@ This guide will walk you through setting up a Jupyter Notebook on a machine usin
 ### 2. Download and Install Mambaforge
 
 - **Download Mambaforge:**
-  - Go to the [Mambaforge GitHub page](https://github.com/conda-forge/miniforge?tab=readme-ov-file#miniforge3), find the appropriate installer for your CPU, and copy the download link in the table.
+  - Go to the [Mambaforge GitHub page](https://github.com/conda-forge/miniforge?tab=readme-ov-file#miniforge3), find the appropriate **_Linux_** distribution that corresponds to the type of CPU (architecture) you are using, and copy the download link in the table.
 > [!IMPORTANT] Do not select an installer under *Miniforge-pypy3* but *Miniforge3*.
 - Check the directory
   ```bash
@@ -58,17 +59,25 @@ This guide will walk you through setting up a Jupyter Notebook on a machine usin
   ```
   Should return `/home/<username>`
   - Create a `downloads` folder
+  
   ```bash
   mkdir downloads
   ```
 
 - **Install Mambaforge:**
+
   ```bash
   wget <Miniforge3_download_link>
   bash <name_sh_file>.sh
   ```
   - Agree to the terms, press `Enter` for default options, and type `yes` when prompted to initialize conda.
---------------------------------------------------------------------------------------------------------------------
+  - Restart terminal for Ubuntu, you should see `(base)` at the beginning of prompt.
+
+> [!NOTE]
+> Everytime you open a new Ubuntu terminal, you should see `(base)` environment. That means your configuration setup works well for this course and labs.
+
+---
+
 ### 3. Verify Installation
 
 - Ensure Mambaforge is correctly installed:
@@ -82,6 +91,7 @@ This guide will walk you through setting up a Jupyter Notebook on a machine usin
 ### 1. Install JupyterLab and Essential Libraries
 
 - **Install necessary packages:**
+
   ```bash
   mamba install ipython jupyterlab ipywidgets
   ```
@@ -108,10 +118,14 @@ This guide will walk you through setting up a Jupyter Notebook on a machine usin
   jupyter lab --no-browser
   ```
   - Use the provided link to access JupyterLab from your browser.
-## Install Visual Studio Code
-VS Code is a source-code editor, it include usefull features like debugging suport, code completion, code refactoring, syntax highlighting and embedded git control.
+- **Close JupyterLab:** 
+  - Close navigator and clic on *ctrl+c* on Terminal, the accept prompts with `Y`
 
-Use this installation [help](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode) to guide you through the installation and configuration with WSL, stop before the section **_Install Git (optional)_**.
+## Install Visual Studio Code
+
+VS Code is a source-code editor, it include usefull features like debugging support, code completion, code refactoring, syntax highlighting and embedded git control.
+
+Use this installation [help](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode) to guide you through the *VSCode* installation and configuration with WSL, stop before the section **_Install Git (optional)_**.
 
 > Go to [Developing in WSL](https://code.visualstudio.com/docs/remote/wsl) for more information about the installation and operation.
 
@@ -129,6 +143,7 @@ For working on a Notebook, the two methods works and have advantages, few differ
 
 Be sure git is installed correctly on your computer by following [this quick tutorial](https://linuxhint.com/add-git-bash-windows-terminal/).
 
+In Ubuntu/WSL Terminal, follow the next steps :
 ### 1. Configure Git
 
 - **Set up your Git identity:**
@@ -136,7 +151,7 @@ Be sure git is installed correctly on your computer by following [this quick tut
   git config --global user.name "Your Name"
   git config --global user.email "your.name@example.ch"
   ```
--Confirm that the Git username is set correctly:
+- Confirm that the Git username is set correctly:
   ```bash
   $ git config --global user.name
   > Your Name
@@ -148,12 +163,15 @@ Be sure git is installed correctly on your computer by following [this quick tut
 - **Generate SSH Key:**
   ```bash
   ssh-keygen -t ed25519 -C "your_email@example.ch"
+  ```
+  When you're prompted to "Enter a file in which to save the key", you can press Enter to accept the default file location, same for passphrase.
+  ```bash
   eval "$(ssh-agent -s)"
   ssh-add ~/.ssh/id_ed25519
   ```
 
 - **Add public SSH Key to GitHub:**
-  - Copy the public key:
+  - Copy the generate text in Terminal by the following command :
     ```bash
     cat ~/.ssh/id_ed25519.pub
     ```
@@ -162,11 +180,14 @@ Be sure git is installed correctly on your computer by following [this quick tut
 ### 3. Clone Repository
 
 - **Clone the project repository:**
+  
+  Create a folder (like git in exemple) and clone the repository inside 
   ```bash
   mkdir git 
   cd git
-  git clone git@github.com:heig-vd-iese/rht.git
+  git clone git@github.com:heig-vd-ie/rht.git
   ```
+  Type `yes`to accept the warning.
 
 ### 4. Install Dependencies
 
