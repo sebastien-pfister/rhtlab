@@ -6,7 +6,7 @@
 - [ ] Complet [Install-Visual-Studio-Code](#install-visual-studio-code)
 - [ ] Add advantage/disadvantage jupiter/vs code
 - [ ] Add the setup : WSL, ect. so it can be used for this project
-- [ ] Test dfgdf
+- [ ] Test
 </details>
 
 # Environnement Setup
