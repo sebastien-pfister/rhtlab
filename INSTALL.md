@@ -12,7 +12,7 @@
 # Environnement Setup
 
 This guide will walk you through setting up a Jupyter Notebook on a machine using Mambaforge and WSL.
-And also install Visual Studio Code. skjdhfkjasdhf jhsdfhksdfsdf
+And also install Visual Studio Code.
 
 ## Prerequisites for Windows Users
 
