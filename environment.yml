@@ -615,6 +615,5 @@ dependencies:
   - zstandard=0.23.0
   - zstd=1.5.6
   - pip:
-      - pandapower-heig-ui==0.6.1
+      - pandapower-heig-ui==0.8.1
       - pdal-plugins==1.5.2
-prefix: /home/angiraldi/miniforge3/envs/nbdev
